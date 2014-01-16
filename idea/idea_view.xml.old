@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<record model="idea_modelo" id="objeto_xml_id">
+			<field name="campo1">valor1</field>
+			<field name="campo2">valor2</field>			
+		</record>
+		
+		<record model="idea_modelo2" id="objeto_xml_id2">
+			<field name="campo1" ref="module.objeto_xml_id"/>
+			<field name="campo2" eval="ref('module.objeto_xml_id')"/>		
+		</record>
+		
+		<record model="ir.actions.act_window" id="action_id">
+			<field name="name">action.name</field>
+			<field name="view_id" ref="view_id"/>
+			<field name="domain">[list of 3-tuples (max 250 char)]</field>
+			<field name="context">{dicionario}</field>
+			<field name="res_model">idea.modelo</field>
+			<field name="view_type">form|tree</field>
+			<field name="view_mode">form,tree,calendar,graph</field>
+			<field name="target">new</field>
+			<field name="search_view_id" ref="search_view_id"/>		
+		</record>
+		
+		<menuitem id="menu_id" parent="parent_menu_id" name="label"
+			action="action_id" groups="groupname1,groupname2" sequence="10"/>
+		
+		<record model="ir.ui.view" id="view_id">
+			<field name="name">view.name</field>
+			<field name="model">object_name</field>
+			<!-- types: tree,form,calendar,search,graph,gantt,kanban -->
+				<field name="type">form</field>
+				<field name="priority" eval="16"/>
+					<field name="arch" type="xml">
+						<!-- view content: <form>, <tree>, <graph>, <gantt>, <kanban> -->
+					</field>				
+		</record>
+		
+		<form string="Idea form">
+			<group col="6" colspan="4">
+				<group colspan="5" col="6">
+					<field name="name" colspan="6"/>
+					<field name="inventor_id"/>
+					<field name="inventor_country_id"/>
+					<field name="score"/>					
+				</group>
+			<group colspan="1" col="2">
+				
+			</group>
+			</group>
+			
+		</form>		
+				
+	</data>
+</openerp>

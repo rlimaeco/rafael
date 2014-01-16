@@ -1,0 +1,1 @@
+import course, session, attendee, partner

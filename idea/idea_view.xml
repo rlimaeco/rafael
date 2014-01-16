@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+
+		<menuitem icon="terp-crm" id="menu_idea" name="Ideia"/>
+		<menuitem id="menu_idea_nova" name="Nova" parent="menu_idea" sequence="0"/>
+		<menuitem id="menu_idea_configuracao" name="Configuração" parent="menu_idea" sequence="99"/>
+		
+			
+			<record model="ir.ui.view" id="idea_idea_form">
+				<field name="name">idea.idea.form</field>
+				<field name="model">idea.idea</field>
+				<field name="arch" type="xml">
+					<form string="Idea Form" version="7.0">
+						<group>
+							<field name="name"/>
+							<field name="state"/>
+							<field name="description"/>	
+							<field name="description2"/>							
+							<field name="active"/>	
+							<field name="invent_date"/>	
+							<field name="inventor_id"/>	
+							<field name="inventor_country_id"/>	
+							<field name="vote_ids"/>				
+							<field name="sponsor_ids"/>	
+							<field name="score"/>	
+							<field name="category_id"/>									
+						</group>
+					</form>
+				</field>
+			</record>
+	
+			<record model="ir.ui.view" id="idea_idea_tree">
+				<field name="name">idea.idea.tree</field>
+				<field name="model">idea.idea</field>
+				<field name="arch" type="xml">
+					<tree string="Idea Arvore">
+						<field name="name"/>
+						<field name="state"/>
+						<field name="description"/>
+						<field name="description2"/>							
+						<field name="active"/>	
+						<field name="invent_date"/>	
+						<field name="inventor_id"/>	
+						<field name="inventor_country_id"/>	
+						<field name="vote_ids"/>				
+						<field name="sponsor_ids"/>	
+						<field name="score"/>	
+						<field name="category_id"/>		
+					</tree>
+				</field>
+			</record>
+	
+			<record model="ir.actions.act_window" id="action_idea_idea">
+				<field name="name">Idea</field>
+				<field name="type">ir.actions.act_window</field>
+				<field name="res_model">idea.idea</field>
+				<field name="view_mode">tree,form</field>
+				<field name="view_type">form</field>
+				<field name="view_id" ref="idea_idea_tree"/>
+			</record>
+			
+					
+			<menuitem name="Idea Arvore" id="menu_idea_tree" parent="menu_idea_nova" action="action_idea_idea"/>			
+			
+			
+	</data>
+
+</openerp>

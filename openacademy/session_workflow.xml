@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+<!--Declaração do Workflow-->
+        <record id="wkf" model="workflow">
+            <field name="name">session.session.basic</field>
+            <field name="osv">session.session</field>
+            <field name="on_create">True</field>
+        </record>
+
+<!--Declaração das atividades-->
+        <record id="act_draft" model="workflow.activity">
+            <field name="wkf_id" ref="wkf"/>
+            <field name="flow_start">True</field>
+            <field name="name">draft</field>
+            <field name="action">action_draft()</field>
+            <field name="kind">function</field>
+        </record>
+        
+        <record id="act_half" model="workflow.transition">
+            <field name="act_from" ref="act_draft"/>
+            <field name="act_to" ref="act_confirm"/>
+            <field name="trigger_model">session.session</field>
+            <!-- <field name="trigger_expr_id">half_taken_seats()</field> -->
+            <field name="condition">taken_seats_percent > 50</field> 
+        </record>
+        
+
+
+
+        <record id="act_confirm" model="workflow.activity">
+            <field name="wkf_id" ref="wkf"/>
+            <field name="name">confirm</field>
+            <field name="action">action_confirm()</field>
+            <field name="kind">function</field>
+        </record>
+
+        
+        <record id="act_done" model="workflow.activity">
+            <field name="wkf_id" ref="wkf"/>
+            <field name="name">done</field>
+            <field name="flow_stop">True</field>
+            <field name="action">action_done()</field>
+            <field name="kind">function</field>
+        </record>
+<!--Declaração das Transições-->
+        <record id="t4" model="workflow.transition">
+            <field name="act_from" ref="act_draft"/>
+            <field name="act_to" ref="act_confirm"/>
+            <field name="signal">action_confirm</field>
+        </record>
+        
+
+        <record id="t8" model="workflow.transition">
+            <field name="act_from" ref="act_confirm"/>
+            <field name="act_to" ref="act_draft"/>
+            <field name="signal">action_draft</field> 
+        </record> 
+
+        <record id="t12" model="workflow.transition">
+            <field name="act_from" ref="act_confirm"/>
+            <field name="act_to" ref="act_done"/>
+            <field name="signal">action_done</field>
+        </record> 
+
+         
+
+
+
+    </data>
+</openerp>
