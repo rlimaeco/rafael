@@ -8,10 +8,12 @@ from datetime import datetime, timedelta
 class session(osv.Model):
     _name = 'session.session'
 
-    # def half_taken_seats(self, cr, uid, ids, context=None):
-    #     #i= self.browse(cr, uid, ids, context=context)
-    #     if self.taken_seats > 50 and state == 'draft':
-    #         self.write(cr, uid, ids, {'state':'confirmed'}, context=context)
+    def test_seats(self, cr, uid, ids, context=None):
+        i= self.browse(cr, uid, ids, context=context)
+        if not i:
+            return False        
+        if i.taken_seats > 50 and state == 'draft':
+            return True
 
     def action_draft(self, cr, uid, ids, context=None):
         self.write(cr, uid, ids, {'state':'draft'}, context=context)

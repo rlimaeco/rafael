@@ -5,6 +5,6 @@
     "author" : "Rafael Lima",
     "category" : "Aprendizado",
     "description" : "Treinamento",
-    'data' : ['course_view.xml','session_workflow.xml'],
+    'data' : ['course_view.xml','session_workflow.xml','report/openacademy.xml'],
     'demo' : [],
 }
