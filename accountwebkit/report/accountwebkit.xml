@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<report id="report_webkit"
+			model="account_invoice"
+			name="accountwebkit.report"
+			file="accountwebkit/report/journal_report.mako"
+			string="Journal itens Report"
+			report_type="webkit"/>
+	</data>
+</openerp>
