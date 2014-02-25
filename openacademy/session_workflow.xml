@@ -20,9 +20,7 @@
         <record id="act_half" model="workflow.transition">
             <field name="act_from" ref="act_draft"/>
             <field name="act_to" ref="act_confirm"/>
-            <field name="trigger_model">session.session</field>
-            <field name="trigger_expr_id">action_confirm()</field>
-            <field name="condition">test_seats()</field> 
+            <field name="condition">taken_seats > 50</field> 
         </record><!--Trigger implementado com test seats na classe sessão , mas não funciona...-->
         
 

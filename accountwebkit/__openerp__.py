@@ -35,6 +35,7 @@
         'l10n_br_account_payment_extension_data.xml',
         'account_payment_view.xml',
         'account_invoice_view.xml',
+        'account_move_line_view.xml',
         'security/l10n_br_account_payment_extension_security.xml',
         'report/accountwebkit.xml'
     ],

@@ -21,12 +21,12 @@ from osv import orm, fields
 
 
 class account_move_line(orm.Model):
-    _inherit = 'account.move.line'
+    _inherit = 'account.account'
     _columns = {
-        'revenue_expense': fields.related(
-            'journal_id', 'revenue_expense', type='boolean',
-            relation='account.journal', string='Revenue Expense',
-            store=False, readonly=True),
+        # 'revenue_expense': fields.related(
+        #     'journal_id', 'revenue_expense', type='boolean',
+        #     relation='account.journal', string='Revenue Expense',
+        #     store=False, readonly=True),
          'due_date_from':fields.function(lambda *a,**k:{}, method=True, type='date',string="Vencido desde"),
          'due_date_to':fields.function(lambda *a,**k:{}, method=True, type='date',string="Vence ate"),
     }

@@ -13,7 +13,7 @@
 
 		<record model="ir.actions.act_window"
 			id="account_payment_extension.action_invoice_payments">
-			<field name="name">Invoice payments</field>
+			<field name="name">Invoice Aqui payments</field>
 			<field name="res_model">account.move.line</field>
 			<field name="view_type">form</field>
 			<field name="view_id" ref="account_payment_extension.view_payments_tree" />
@@ -48,3 +48,11 @@
 	</data>
 
 </openerp>
+
+
+<!-- Inserir : 
+
+<field name="due_date_from" filter_domain="[('date_due','&gt;=',self)]"/>
+
+
+<field name="due_date_to" filter_domain="[('date_due','&lt;=',self)]"/> -->
