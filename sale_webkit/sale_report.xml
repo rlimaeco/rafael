@@ -188,7 +188,7 @@
         		model="sale.order" 
         		name="sale.order.webkit"
                 file="sale_webkit/report/sale_order.mako" 
-        		string="Quotation / Order"
+        		string="Cotação / Ordem"
                 usage="default"
         		report_type="webkit"
         		webkit_header="sale_header"/>

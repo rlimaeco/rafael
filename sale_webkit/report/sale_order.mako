@@ -11,54 +11,32 @@
     <table class="shipping_address" width="100%">
           <tr>
             <td width="70%">
-                    <b>${_("Shipping address :")}</b>
-                    ${ (o.partner_shipping_id and o.partner_id.title and o.partner_shipping_id.title.name) or ''}</br>
+                    <b>${_("Shipping address :")}</b><br>
                     ${ (o.partner_shipping_id and o.partner_shipping_id.name) or '' }</br>
-                    ${o.partner_shipping_id.street or ''|entity}</br>
+                    ${(o.partner_shipping_id.legal_name) or ''}<br>
+
+                    
+                   ${o.partner_shipping_id.street or ''}, ${(o.partner_shipping_id.number) or ''|entity}<br>
                 %if o.partner_shipping_id.street2 :
-                    ${o.partner_shipping_id.street2 or ''|entity}</br>
+                    ${o.partner_shipping_id.street2 or ''|entity}<br>
                 %endif
-                  ${o.partner_shipping_id.zip or ''|entity}, ${o.partner_shipping_id.city or ''|entity}</br>
-                %if o.partner_shipping_id.country_id :
-                    ${o.partner_shipping_id.country_id.name or ''|entity}</br>
-                %endif
+                  
+                  ${o.partner_shipping_id.zip or ''} ${o.partner_shipping_id.city or ''} - ${o.partner_shipping_id.state_id.code or ''}<br>
+                
               </td>
-              <td width="45%" style="text-align:left">
-                </br>
-                    ${ (o.partner_shipping_id and o.partner_shipping_id.name) or '' }</br>
-                    ${o.partner_invoice_id.street or ''|entity}</br>
-                %if o.partner_invoice_id.street2 :
-                    ${o.partner_invoice_id.street2 or ''|entity}</br>
-                %endif
-                  ${o.partner_invoice_id.zip or ''|entity}, ${o.partner_invoice_id.city or ''|entity}</br>
-                %if o.partner_invoice_id.country_id :
-                    ${o.partner_invoice_id.country_id.name or ''|entity}</br>
-                %endif
-                </br>
-                  ${_("Tel. :")} ${ (o.partner_id.phone) or '' }</br>
-                  %if o.partner_id.fax :
-                    ${_("Fax : ")} ${ o.partner_id.fax or ''|entity}</br>
-                  %endif
-                  %if o.partner_id.vat :
-                    ${_("Vat : ")} ${ o.partner_id.vat or ''|entity}</br>
-                  %endif
-                </br>
-                </td>
+             
              </tr>
              <tr>
                  <td> 
-                  <b>${_("Invoice address :")}</b>
-                  ${ (o.partner_shipping_id and o.partner_id.title and o.partner_shipping_id.title.name) or ''}</br>
-                    ${ (o.partner_shipping_id and o.partner_shipping_id.name) or '' }</br>
-                    ${o.partner_invoice_id.street or ''|entity}</br>
-                %if o.partner_invoice_id.street2 :
-                  ${o.partner_invoice_id.street2 or ''|entity}</br>
-                %endif
-                ${o.partner_invoice_id.zip or ''|entity}, ${o.partner_invoice_id.city or ''|entity}</br>
-                %if o.partner_invoice_id.country_id :
-                  ${o.partner_invoice_id.country_id.name or ''|entity}</br>
-                %endif
-                </td>
+                  <b>${_("Invoice address :")}</b><br>
+                     ${ (o.partner_invoice_id and o.partner_invoice_id.name) or '' }</br>
+                     ${ (o.partner_invoice_id.legal_name) or '' }</br>
+                     ${o.partner_invoice_id.street or ''|entity}, ${o.partner_invoice_id.number or ''|entity}</br>  
+                    %if o.partner_invoice_id.street2 :
+                      ${o.partner_invoice_id.street2 or ''|entity}</br>
+                    %endif
+                ${o.partner_invoice_id.zip or ''|entity} ${o.partner_invoice_id.city or ''|entity} - ${o.partner_invoice_id.state_id.code or ''|entity}</br>
+                 </td>
               </tr>
     </table>
     
